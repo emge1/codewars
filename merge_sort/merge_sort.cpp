@@ -1,7 +1,6 @@
 #include <iostream>
 #include <random>
 #include <vector>
-using namespace std;
   
 void merge(int array[], int const left, int const mid,
            int const right)
@@ -65,17 +64,25 @@ void mergeSort(int array[], int const begin, int const end)
 void printArray(int A[], int size)
 {
     for (auto i = 0; i < size; i++)
-        cout << A[i] << " ";
+        std::cout << A[i] << " ";
 }
 
 int main()
 {
-    int arr[] = {6, 3, 8, 1, 9, 5, 6, 2, 1, 88, 55, 22, 145};
-    int arr_size = sizeof(arr)/sizeof(arr[0]);
+    int arr_length;
+    std::cout << "How many elements your array contains? " << std::endl;
+    int arr_size;
+    std::cin >> arr_size;
+    int arr[arr_size];
+
+    std::cout << "Write the elements of your array. After writing the first one, press enter and so on}" << std::endl;
+    for (int i = 0; i < arr_size; ++i)
+    {
+        std::cin >> arr[i];
+    }
 
     mergeSort(arr, 0, arr_size - 1);
-
-    cout << "Sorted array: ";
+    std::cout << "Sorted array: ";
     printArray(arr, arr_size);
     return 0;
 }
